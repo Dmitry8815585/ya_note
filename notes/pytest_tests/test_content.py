@@ -1,6 +1,6 @@
 import pytest
-from pytest_lazyfixture import lazy_fixture
 from django.urls import reverse
+from pytest_lazyfixture import lazy_fixture
 
 
 def test_note_in_list_for_author(note, author_client):

@@ -1,17 +1,12 @@
-from pytest_django.asserts import assertRedirects, assertFormError
-
-from django.urls import reverse
-
-from notes.models import Note
+from http import HTTPStatus
 
 import pytest
-
-from notes.forms import WARNING
-
-
+from django.urls import reverse
+from pytest_django.asserts import assertFormError, assertRedirects
 from slugify import slugify
 
-from http import HTTPStatus
+from notes.forms import WARNING
+from notes.models import Note
 
 
 def test_user_can_create_note(author_client, author, form_data):
