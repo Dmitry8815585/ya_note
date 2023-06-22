@@ -1,5 +1,5 @@
 import pytest
-
+from pytest_lazyfixture import lazy_fixture
 from django.urls import reverse
 
 
@@ -20,8 +20,8 @@ def test_note_not_in_list_for_another_user(note, admin_client):
 @pytest.mark.parametrize(
     'parametrized_client, note_in_list',
     (
-        (pytest.lazy_fixture('author_client'), True),
-        (pytest.lazy_fixture('admin_client'), False),
+        (lazy_fixture('author_client'), True),
+        (lazy_fixture('admin_client'), False),
     )
 )
 def test_notes_list_for_different_users(
@@ -37,7 +37,7 @@ def test_notes_list_for_different_users(
     'name, args',
     (
         ('notes:add', None),
-        ('notes:edit', pytest.lazy_fixture('slug_for_args'))
+        ('notes:edit', lazy_fixture('slug_for_args'))
     )
 )
 def test_pages_contains_form(author_client, name, args):
