@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from notes.models import Note
 from django.urls import reverse
 from http import HTTPStatus
-from pytils.translit import slugify
+from slugify import slugify
 from notes.forms import WARNING
 
 User = get_user_model()

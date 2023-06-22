@@ -9,7 +9,7 @@ import pytest
 from notes.forms import WARNING
 
 
-from pytils.translit import slugify
+from slugify import slugify
 
 from http import HTTPStatus
 
