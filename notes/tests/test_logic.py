@@ -8,7 +8,7 @@ from notes.forms import WARNING
 
 User = get_user_model()
 
-'''
+
 class TestLogic(TestCase):
 
     NOTE_TEXT = 'Text'
@@ -38,9 +38,6 @@ class TestLogic(TestCase):
         self.auth_client.post(self.url, data=self.form_data)
         notes_count = Note.objects.count()
         self.assertEqual(notes_count, 1)
-
-    def test_empty_slug(self):
-        ...
 
 
 class TestNoteEditDelete(TestCase):
@@ -121,8 +118,6 @@ class TestSlug(TestCase):
         expected_slug = slugify(self.form_data['title'])
         self.assertEqual(note.slug, expected_slug)
 
-'''
-
 
 class TestSlugUniq(TestCase):
 
@@ -145,12 +140,11 @@ class TestSlugUniq(TestCase):
         not_uniq_slug = {'slug': f'{self.note.slug}'}
         response = self.auth_client.post(self.url, data=not_uniq_slug)
 
-        # error_msg = 'Note with this Slug already exists.'
         self.assertFormError(
             response,
             form='form',
             field='slug',
-            errors=[WARNING]
+            errors=(self.note.slug+WARNING)
         )
 
         notes_count = Note.objects.count()

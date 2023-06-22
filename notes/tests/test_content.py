@@ -1,33 +1,3 @@
-'''from http import HTTPStatus
-from django.test import TestCase
-from django.urls import reverse
-from django.contrib.auth.models import User
-from notes.models import Note
-
-
-class PostTestCase(TestCase):
-    def setUp(self):
-        self.author = User.objects.create(
-            username='author',
-        )
-
-        self.post1 = Note.objects.create(
-            title='Test Post 1',
-            text='This is a test post by author.',
-            author=self.author
-        )
-
-        self.post2 = Note.objects.create(
-            title='Test Post 2',
-            text='This is another test post by author.',
-            author=self.author
-        )
-
-    def test_author_can_view_list_of_posts(self):
-        self.client.force_login(self.author)
-        response = self.client.get(reverse('notes:list'))
-        self.assertEqual(response.status_code, HTTPStatus.OK)
-'''
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
