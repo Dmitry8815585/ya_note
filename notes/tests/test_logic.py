@@ -27,7 +27,7 @@ class TestLogic(TestCase):
         cls.form_data = {
             'title': cls.NOTE_TEXT,
             'text': cls.NOTE_TEXT,
-            }
+        }
 
         cls.url = reverse('notes:add')
 
@@ -69,7 +69,7 @@ class TestNoteEditDelete(TestCase):
         cls.form_data = {
             'title': cls.NOTE_TEXT,
             'text': cls.NEW_NOTE_TEXT,
-            }
+        }
 
     def test_author_can_delete_note(self):
         response = self.author_client.delete(self.delete_url)
@@ -112,7 +112,7 @@ class TestSlug(TestCase):
             'title': 'Test Title',
             'text': 'Test Content',
             'slug': ''
-            }
+        }
 
     def test_empty_slug(self):
         self.auth_client.post(self.url, data=self.form_data)
@@ -146,7 +146,7 @@ class TestSlugUniq(TestCase):
             response,
             form='form',
             field='slug',
-            errors=(self.note.slug+WARNING)
+            errors=(self.note.slug + WARNING)
         )
 
         notes_count = Note.objects.count()
