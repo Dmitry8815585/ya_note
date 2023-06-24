@@ -3,7 +3,7 @@ from http import HTTPStatus
 import pytest
 from django.urls import reverse
 from pytest_django.asserts import assertFormError, assertRedirects
-from slugify import slugify
+from pytils.translit import slugify
 
 from notes.forms import WARNING
 from notes.models import Note

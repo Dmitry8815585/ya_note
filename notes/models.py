@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from slugify import slugify
+from pytils.translit import slugify
 
 
 class Note(models.Model):
